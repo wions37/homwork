@@ -5,62 +5,65 @@ public class Wewklyquiz {
         Scanner input = new Scanner(System.in);
 
         while (true) {
-            System.out.println("원하는 기능을 선택하세요, 1: 덧셈, 2:뺄셈, 3: 곱셈, 4:나눗셈, 0:종료");
-            int option = input.nextInt();
+            try {
+                System.out.println("원하는 기능을 선택하세요, 1: 덧셈, 2:뺄셈, 3: 곱셈, 4:나눗셈, 0:종료");
+                int option = Integer.parseInt(input.nextLine());
 
-            if (option == 1) {
+                if (1 <= option && option <= 4) {
 
-                System.out.println("첫번째 값을 입력하고 엔터를 누르세요.");
-                int num1 = input.nextInt();
+                    System.out.println("첫번째 값을 입력하고 엔터를 누르세요.");
+                    int num1 = Integer.parseInt(input.nextLine());
 
-                System.out.println("두번째 값을 입력하고 엔터를 누르세요.");
-                int num2 = input.nextInt();
-
-                int sum = num1 + num2;
-                System.out.println(num1 + "+" + num2 + "=" + sum);
-
-            } else if (option == 2) {
-
-                System.out.print("첫번째 값을 입력하고 엔터를 누르세요.");
-                int num1 = input.nextInt();
-
-                System.out.print("두번째 값을 입력하고 엔터를 누르세요.");
-                int num2 = input.nextInt();
-
-                int sum = num1 - num2;
-                System.out.println(num1 + "-" + num2 + "=" + sum);
+                    System.out.println("두번째 값을 입력하고 엔터를 누르세요.");
+                    int num2 = Integer.parseInt(input.nextLine());
+                    int sum = 0;
 
 
-            } else if (option == 3) {
+                    if (option == 1) {
 
-                System.out.println("첫번째 값을 입력하고 엔터를 누르세요.");
-                int num1 = input.nextInt();
+                        sum = num1 + num2;
+                        System.out.println(num1 + "+" + num2 + "=" + sum);
 
-                System.out.println("두번째 값을 입력하고 엔터를 누르세요.");
-                int num2 = input.nextInt();
+                    } else if (option == 2) {
+//                System.out.print("첫번째 값을 입력하고 엔터를 누르세요.");
+//                int num1 = input.nextInt();
+//
+//                System.out.print("두번째 값을 입력하고 엔터를 누르세요.");
+//                int num2 = input.nextInt();
+                        sum = num1 - num2;
+                        System.out.println(num1 + "-" + num2 + "=" + sum);
 
-                int sum = num1 * num2;
-                System.out.println(num1 + "*" + num2 + "=" + sum);
 
-            } else if (option == 4) {
+                    } else if (option == 3) {
+//                System.out.println("첫번째 값을 입력하고 엔터를 누르세요.");
+//                int num1 = input.nextInt();
+//
+//                System.out.println("두번째 값을 입력하고 엔터를 누르세요.");
+//                int num2 = input.nextInt();
+                        sum = num1 * num2;
+                        System.out.println(num1 + "*" + num2 + "=" + sum);
 
-                System.out.println("첫번째 값을 입력하고 엔터를 누르세요.");
-                int num1 = input.nextInt();
+                    } else if (option == 4) {
+//                System.out.println("첫번째 값을 입력하고 엔터를 누르세요.");
+//                int num1 = input.nextInt();
+//
+//                System.out.println("두번째 값을 입력하고 엔터를 누르세요.");
+//                int num2 = input.nextInt();
+                        sum = num1 / num2;
+                        System.out.println(num1 + "/" + num2 + "=" + sum);
+                    }
 
-                System.out.println("두번째 값을 입력하고 엔터를 누르세요.");
-                int num2 = input.nextInt();
+                } else if (option == 0) {
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
 
-                int sum = num1 / num2;
-                System.out.println(num1 + "/" + num2 + "=" + sum);
-
-            } else if (option == 0) {
-                System.out.println("프로그램을 종료합니다.");
-                break;
-
-            } else {
+                } else {
+                    System.out.println("올바른 입력이 아닙니다.");
+                }
+            } catch (NumberFormatException e) {
                 System.out.println("올바른 입력이 아닙니다.");
             }
-        }
-        input.close();
+
+        }input.close();
     }
 }
